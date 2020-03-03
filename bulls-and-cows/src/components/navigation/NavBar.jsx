@@ -1,37 +1,23 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
 import AuthorizedNav from "./authorized/Authorized";
 import UnauthorizedNav from "./unauthorized/Unauthorized";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../ContextWrapper";
 
 import logo from "../../assets/images/clean-logo.png";
 
-export default class Navbar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLogged: false
-    };
-  }
+const Navbar = () => {
+  const { auth } = useContext(AuthContext);
+  return (
+    <div className="navbar">
+      <section className="logo-container">
+        <Link to="/home">
+          <img src={logo} alt="logo"></img>
+        </Link>
+      </section>
+      <nav>{auth ? <AuthorizedNav /> : <UnauthorizedNav />}</nav>
+    </div>
+  );
+};
 
-  componentDidMount() {
-    const user = JSON.parse(localStorage.getItem("user"));
-    this.setState({
-      isLogged: user
-    });
-  }
-
-  render() {
-    return (
-      <div className="navbar">
-        <section className="logo-container">
-          <Link to="/home">
-            <img src={logo} alt="logo"></img>
-          </Link>
-        </section>
-        <nav>
-          {!this.state.isLogged ? <UnauthorizedNav /> : <AuthorizedNav />}
-        </nav>
-      </div>
-    );
-  }
-}
+export default Navbar;

@@ -11,10 +11,8 @@ const Highscore = () => {
   let [players, setPlayers] = useState([]);
 
   useEffect(() => {
-    let playersScores;
-
     userService.getAllUsers().then(data => {
-      playersScores = data
+      const playersScores = data
         .sort((a, b) => (a.bestGame > b.bestGame ? 1 : -1))
         .filter(a => a.bestGame || a.bestGame !== 0)
         .slice(0, 25);

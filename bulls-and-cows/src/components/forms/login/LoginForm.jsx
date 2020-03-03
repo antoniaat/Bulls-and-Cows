@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 
@@ -8,8 +8,10 @@ import userService from "../../../services/user-service";
 import "../../../styles/styles.scss";
 
 import logo from "../../../assets/images/logo.png";
+import { AuthContext } from "../../../ContextWrapper";
 
 const LoginForm = ({ history }) => {
+  const { _, updateAuth } = useContext(AuthContext);
   let [username, setUsername] = useState("");
   let [password, setPassword] = useState("");
 
@@ -20,6 +22,7 @@ const LoginForm = ({ history }) => {
     userService.login(user).then(data => {
       localStorage.setItem("user", JSON.stringify(data));
       history.push("/play");
+      updateAuth(true);
     });
   }
 
