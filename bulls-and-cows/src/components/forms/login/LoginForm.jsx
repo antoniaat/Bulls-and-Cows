@@ -7,22 +7,22 @@ import "../../../styles/styles.scss";
 import logo from "../../../assets/images/logo.png";
 
 const LoginForm = ({ history }) => {
-  const [state, setState] = useState({
-    username: "",
-    password: ""
-  });
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   function handleUsernameChange(e) {
-    setState({ ...state, username: e.target.value });
+    setUsername({ username: e.target.value });
   }
 
   function handlePasswordChange(e) {
-    setState({ ...state, password: e.target.value });
+    setPassword({ password: e.target.value });
   }
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    userService.login(state).then(data => {
+    const user = { username, password };
+
+    userService.login(user).then(data => {
       localStorage.setItem("user", JSON.stringify(data));
       history.push("/play");
     });
@@ -41,7 +41,7 @@ const LoginForm = ({ history }) => {
             <input
               type="text"
               name="username"
-              value={state.username}
+              value={username}
               onChange={handleUsernameChange}
             />
           </label>
@@ -52,7 +52,7 @@ const LoginForm = ({ history }) => {
             <input
               type="password"
               name="password"
-              value={state.password}
+              value={password}
               onChange={handlePasswordChange}
             />
           </label>
