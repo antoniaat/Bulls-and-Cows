@@ -1,0 +1,68 @@
+.navbar {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 10px 0 rgba(41, 57, 75, 0.25);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    .logo-container img {
+        width: 21%;
+        padding-left: 0.7em;
+    }
+
+    li {
+        display: inline-block;
+        margin: 0 1em;
+    }
+
+    .nav-link {
+        padding: 2em 0.2em;
+        margin: 0.2em;
+        margin: -3px 0 -1px 0;
+
+        &:hover {
+            background: $gray;
+            cursor: pointer;
+        }
+
+        a {
+            color: $darkGray;
+            font-weight: normal;
+            font-weight: 500;
+            font-size: 18px;
+        }
+    }
+}
+
+@include bp(mobile) {
+    .navbar {
+        display: block;
+
+        .logo-container {
+            text-align: center;
+
+            img {
+                width: 65%;
+                padding: 1em;
+            }
+        }
+
+        nav {
+            text-align: center;
+            padding: .7em;
+
+            .nav-link {
+                display: block;
+                padding: .4em;
+            }
+
+            .btn {
+                margin: 1em;
+                display: block;
+            }
+        }
+    }
+}

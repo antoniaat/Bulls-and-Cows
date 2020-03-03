@@ -1,0 +1,37 @@
+@import '../../styles/styles.scss';
+
+.highscore-container {
+    width: 70%;
+    margin: 2em auto;
+
+    header {
+        background: $blue;
+        color: white;
+        width: 20%;
+        padding: .6em;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        font-size: 1.4em;
+        text-align: center;
+        margin-left: 2px;
+        margin: 0 2px 0 auto;
+    }
+
+    .withouth-players {
+        text-align: center;
+
+        h2 {
+            margin: 2em 0;
+        }
+    }
+}
+
+@include bp(mobile) {
+    .highscore-container {
+        width: 85%;
+
+        header {
+            width: 90%;
+        }
+    }
+}
