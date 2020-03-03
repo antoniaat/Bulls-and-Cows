@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Navbar from "../../components/navigation/NavBar";
-import NoPlayersContainer from "./withouth-players/NoPlayersContainer";
+import NoPlayersContainer from "./without-players/NoPlayersContainer";
 import PlayersContainer from "./players/PlayersContainer";
 import userService from "../../services/user-service";
 
