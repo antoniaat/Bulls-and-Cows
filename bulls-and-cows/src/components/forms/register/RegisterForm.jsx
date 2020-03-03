@@ -16,7 +16,7 @@ const RegisterForm = ({ history }) => {
   let [lastName, setLastName] = useState("");
 
   function handleFormSubmit() {
-    const user = { username, password, firstName, lastName };
+    const user = { username, password, firstName, lastName, bestGame: 0 };
     userService.register(user);
     history.push("/login");
   }
