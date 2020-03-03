@@ -1,0 +1,44 @@
+@import '../../../styles/styles.scss';
+
+.attempt {
+    display: flex;
+    width: 78%;
+    border-bottom: 1px solid $darkGray;
+    font-size: 1.3em;
+    margin: .4em auto;
+    padding: 1em;
+
+    h2 {
+        color: $darkGray;
+        margin: 6px;
+    }
+
+    .icon {
+        width: 9%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .content {
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+@include bp(mobile) {
+    .attempt {
+        flex-direction: column;
+
+        section {
+            width: 100%;
+        }
+
+        .icon {
+            display: none;
+        }
+    }
+}

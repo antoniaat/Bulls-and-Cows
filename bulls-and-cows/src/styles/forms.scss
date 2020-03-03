@@ -1,0 +1,74 @@
+@import './responsive.scss';
+
+input {
+  outline: none;
+  border: 1px solid $lightGray;
+  border-radius: 8px;
+  padding: 0.7em;
+
+  &:active,
+  &:focus {
+    border: 1px solid $blue;
+  }
+}
+
+.form {
+  .form-row {
+    margin: 1em auto;
+    position: relative;
+
+    label {
+      width: 90%;
+    }
+  }
+
+  label {
+    span {
+      position: absolute;
+      background: white;
+      top: -15px;
+      margin: 0px 10px;
+      padding: 5px;
+      background: white;
+      padding: 5px;
+    }
+
+    input {
+      width: 80%;
+    }
+  }
+}
+
+.form-card {
+  width: 40%;
+  margin: 0 auto;
+
+  h2 {
+    font-weight: normal;
+  }
+
+  .form {
+    box-shadow: 0 6px 10px 0 rgba(41, 57, 75, 0.25);
+    padding: 0.4em;
+    text-align: center;
+  }
+
+  .img-wrapper {
+    text-align: center;
+
+    img {
+      width: 50%;
+    }
+  }
+
+  footer {
+    margin: 2em auto;
+    text-align: center;
+  }
+}
+
+@include bp(mobile) {
+  .form-card {
+    width: 90%;
+  }
+}
