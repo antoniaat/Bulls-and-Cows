@@ -1,22 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
+
 import FormFooter from "../footer/FormFooter";
 import userService from "../../../services/user-service";
+
 import "../../../styles/styles.scss";
+
 import logo from "../../../assets/images/logo.png";
 
 const LoginForm = ({ history }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  function handleUsernameChange(e) {
-    setUsername({ username: e.target.value });
-  }
-
-  function handlePasswordChange(e) {
-    setPassword({ password: e.target.value });
-  }
+  let [username, setUsername] = useState("");
+  let [password, setPassword] = useState("");
 
   function handleFormSubmit(e) {
     e.preventDefault();
@@ -42,7 +37,7 @@ const LoginForm = ({ history }) => {
               type="text"
               name="username"
               value={username}
-              onChange={handleUsernameChange}
+              onChange={e => setUsername((username = e.target.value))}
             />
           </label>
         </div>
@@ -53,7 +48,7 @@ const LoginForm = ({ history }) => {
               type="password"
               name="password"
               value={password}
-              onChange={handlePasswordChange}
+              onChange={e => setPassword((password = e.target.value))}
             />
           </label>
         </div>
